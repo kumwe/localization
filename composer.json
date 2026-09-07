@@ -60,13 +60,15 @@
       "@examples",
       "@cs",
       "@analyse",
+      "@test:ownership",
       "@test",
       "@clean-consumer",
       "@release:integrity"
     ],
     "security:audit": "composer audit --abandoned=fail",
     "extraction:check": "php tools/verify-extraction.php",
-    "release:integrity": "bash tools/test-release-integrity.sh"
+    "release:integrity": "bash tools/test-release-integrity.sh",
+    "test:ownership": "php tools/verify-test-ownership.php --self-test"
   },
   "config": {
     "sort-packages": true
