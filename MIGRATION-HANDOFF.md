@@ -34,8 +34,8 @@ target:
   repository: "https://github.com/kumwe/localization"
   artifact_identity: "kumwe/localization"
   canonical_namespace_or_abi: "Kumwe\\Localization"
-  branch: "agent/extract-localization-phase1"
-  pull_request: "https://github.com/kumwe/localization/pull/1"
+  branch: "fix/release-integrity-successor-20260907"
+  pull_request: "https://github.com/kumwe/localization/pull/2"
 ownership:
   responsibility: "Portable locale, catalogue, translation, formatting and negotiation behavior."
   non_responsibilities:
@@ -48,13 +48,13 @@ ownership:
   public_manifests:
     -
       path: "resources/public-api/v1.json"
-      sha256: "230b80e1bef2040817736c52aa4ddfa7fa1e1636997477a0166d983451779dc8"
+      sha256: "645454cdf3893932af21fba20fc8a1b6652619ca1ef7b91f05a5f23a5b9c5bbc"
     -
       path: "resources/capabilities/v1.json"
-      sha256: "6a0f0a21832e5513ac7cdb29c876211d61ffc4737f6b215a3307fb81f7a42ace"
+      sha256: "e5ffa4984b444276f5135bb541026734e5a85354d112642bdb244d08972a8697"
     -
       path: "resources/service-map/v1.json"
-      sha256: "d7f344dac4ff949c5a16b5a923b214a0aeb0802f390d118b45b560099129d2a5"
+      sha256: "c7e70a8b5e5ea7bfd70d19cccbb17f111357f7f0f61fcabc7bd14cf5437eca3e"
   intentionally_excluded:
     - "src/Localization/Application/SiteDefaultLocale.php"
     - "src/Localization/Application/MessageOverrideService.php"
@@ -590,13 +590,14 @@ documentation:
   examples:
     - "examples/translate.php"
     - "examples/container.php"
-  changelog_record: "CHANGELOG.md: ## 0.1.0 (NRM-2026-006)"
+  changelog_record: "CHANGELOG.md: ## 0.1.1 (NRM-2026-006)"
 release_expectations:
-  version_policy: "SemVer release-on-record; CHANGELOG.md 0.1.0 is the chosen initial release record under D-GOV-6, not an observed tag/publication."
+  version_policy: "SemVer; 0.1.1 successor under D-GOV-6; fresh verification required after publication."
   expected_artifact_types:
     - "Composer source archive"
     - "immutable GitHub tag/release after human merge"
   required_checks:
+    - "Protected main before publication; exact stable published release reports immutable true."
     - "composer check"
     - "PHP8.5 ext-intl/zip full lane"
     - "no-dev built-ZIP dependency consumer with authoritative autoloader and actual ServiceManager"
@@ -606,6 +607,7 @@ release_expectations:
 next_task:
   phase_name: "Localization Phase 2 App adoption"
   permitted_only_when:
+    - "The release-integrity successor is published from protected main and independently verified."
     - "Package PR human-merged"
     - "Immutable release independently verified by a fresh session"
     - "External RELEASE-ATTESTATION.yaml identifies exact source/archive/manifests and successful consumer install"
@@ -856,3 +858,15 @@ architecture, complete 27-symbol manifests, 23-type executable extraction parity
 consumer with real ServiceManager pass. The actual App PackageManifests reader accepts the handoff as v2-manifested.
 Local security advisory retrieval is blocked by network access; the unchanged fail-closed composer audit gate runs
 in CI. Final-head CI supplies that result; no release attestation is invented or embedded here.
+
+## Release-integrity successor 0.1.1
+
+This PR follows the published 0.1.0 extraction and changes release automation and version-bound metadata only.
+The existing migration/change-set and NRM identifiers continue to name the same extraction. Runtime source,
+public method contracts, source baseline, consumer maps and the moved/retained test inventory are unchanged.
+
+Before merging, the maintainer protects main and enables GitHub immutable releases. The workflow refuses an
+unprotected release ref before tag/release mutation and verifies exact published immutable release metadata.
+The setting applies only to future releases. Keep 0.1.0 and its tag intact; never move, delete or replace them.
+A fresh independent verifier must attest the successor before dependent publication or App adoption.
+See docs/releasing.md for the setup and verification order.
