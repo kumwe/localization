@@ -15,7 +15,7 @@ use Kumwe\Localization\Domain\LocaleTag;
 use Kumwe\Localization\Domain\MessageCatalogue;
 use Kumwe\Localization\Domain\MessageCatalogueChain;
 use Kumwe\Localization\Domain\MessageCatalogueLayer;
-use Kumwe\Localization\Infrastructure\ArrayMessageOverrideRepository;
+use Kumwe\Localization\Tests\Support\ArrayMessageOverrideRepository;
 use Kumwe\Localization\Infrastructure\IntlMessagePatternFormatter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;

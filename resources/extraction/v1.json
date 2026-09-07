@@ -1,0 +1,191 @@
+{
+    "schema": "kumwe-localization-extraction/v1",
+    "source_repository": "https://github.com/kumwe/app",
+    "baseline_commit": "960ce8ec00cf724a7cae03e5ba09c4852c9ab54e",
+    "symbols": [
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\ActiveLocale",
+            "new_fqcn": "Kumwe\\Localization\\Application\\ActiveLocale",
+            "source_path": "src/Localization/Application/ActiveLocale.php",
+            "target_path": "src/Application/ActiveLocale.php",
+            "source_sha256": "1c182188d4c373f948e15c97239d34bededf37507e4e0381fe2f7bcbfe5a7048",
+            "token_sha256": "5b7a10d08ef7fdf718837dd8b4b8dfb6b42ca42c7d699a540e38311ece02964f"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\CatalogueTranslator",
+            "new_fqcn": "Kumwe\\Localization\\Application\\CatalogueTranslator",
+            "source_path": "src/Localization/Application/CatalogueTranslator.php",
+            "target_path": "src/Application/CatalogueTranslator.php",
+            "source_sha256": "6b8f65933a36bf16583bd868d421b1fe29ac75d008d93826de7818b2ca20cc80",
+            "token_sha256": "5e66e754f924092234c2f3ccad2ea93c3c2fc442a9c22ff452fc24998112effc"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\LocaleNegotiator",
+            "new_fqcn": "Kumwe\\Localization\\Application\\LocaleNegotiator",
+            "source_path": "src/Localization/Application/LocaleNegotiator.php",
+            "target_path": "src/Application/LocaleNegotiator.php",
+            "source_sha256": "19bba9a79cde3580b8cc92854e467bc4d03ba68246978efea80286d5a84f4078",
+            "token_sha256": "9fe9949df718bdae454930f13f27e5615df3c46f7e9519bc4a1719e34f1bbb03"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\MessageCatalogueRepository",
+            "new_fqcn": "Kumwe\\Localization\\Application\\MessageCatalogueRepository",
+            "source_path": "src/Localization/Application/MessageCatalogueRepository.php",
+            "target_path": "src/Application/MessageCatalogueRepository.php",
+            "source_sha256": "17d6c40c7287b0fabf32cc6a0fff67c121507e497626c6b76eb40ac6b1f3b91a",
+            "token_sha256": "db5af2ed16a62f08b87cf74809774a663982a6e0afc25e170f959f1970e01bc3"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\MessageFormattingFailed",
+            "new_fqcn": "Kumwe\\Localization\\Application\\MessageFormattingFailed",
+            "source_path": "src/Localization/Application/MessageFormattingFailed.php",
+            "target_path": "src/Application/MessageFormattingFailed.php",
+            "source_sha256": "c7d039702df050471bbf2b59e16cb74df813a0d0a417a34b2bcbd01c78ff0d97",
+            "token_sha256": "2ce2ab148bd611eab5c0b7578b64ed6d0e3717ebc6f461c6f03788bb0f48c845"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\MessageOverrideRecord",
+            "new_fqcn": "Kumwe\\Localization\\Application\\MessageOverrideRecord",
+            "source_path": "src/Localization/Application/MessageOverrideRecord.php",
+            "target_path": "src/Application/MessageOverrideRecord.php",
+            "source_sha256": "b70c02ca1bef49711d0ad3b23de787dfa46aaa361bac267992693eafb52628fb",
+            "token_sha256": "0a3ea03b77d2ba4b37284ade18bcf56ede3d2579350e503e33d59f198b9b7874"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\MessageOverrideRepository",
+            "new_fqcn": "Kumwe\\Localization\\Application\\MessageOverrideRepository",
+            "source_path": "src/Localization/Application/MessageOverrideRepository.php",
+            "target_path": "src/Application/MessageOverrideRepository.php",
+            "source_sha256": "b2d908ce502be9a1b78e97d72616a9d6d092c713a9a0363cb1ebf5468cee11be",
+            "token_sha256": "8ffb8bff43f7a505d6025bff0d44af3365c92db56860b2fb2fa39a559a28d85e"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\MessageOverrideStore",
+            "new_fqcn": "Kumwe\\Localization\\Application\\MessageOverrideStore",
+            "source_path": "src/Localization/Application/MessageOverrideStore.php",
+            "target_path": "src/Application/MessageOverrideStore.php",
+            "source_sha256": "a15e0943c8da19a6aba1d78b20691c4556b5d9fcc73a2b88f70349a7567a05cc",
+            "token_sha256": "85e0a5ab4a615ade7b9bfaf3823b40668afdc59a6e4333f827e1738f8fbf75db"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\MessagePatternFormatter",
+            "new_fqcn": "Kumwe\\Localization\\Application\\MessagePatternFormatter",
+            "source_path": "src/Localization/Application/MessagePatternFormatter.php",
+            "target_path": "src/Application/MessagePatternFormatter.php",
+            "source_sha256": "2fecc32a36195cd7f6ea7153ab05f28679761bc28478a6a51b34976652a1ca3c",
+            "token_sha256": "3e3e33d84e12f00336a23ebb27eda376287d6b548354d71169033592a818ff7c"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\MessagePatternValidator",
+            "new_fqcn": "Kumwe\\Localization\\Application\\MessagePatternValidator",
+            "source_path": "src/Localization/Application/MessagePatternValidator.php",
+            "target_path": "src/Application/MessagePatternValidator.php",
+            "source_sha256": "b8b97110b8acf76a04bb4ccd31fe58cc6feec31cbdcee0899be6407444b8618d",
+            "token_sha256": "e4fb50fd29357a6c00e01126ac72da6c94f73f46905ce746d90af3a5979db525"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\SupportedLocales",
+            "new_fqcn": "Kumwe\\Localization\\Application\\SupportedLocales",
+            "source_path": "src/Localization/Application/SupportedLocales.php",
+            "target_path": "src/Application/SupportedLocales.php",
+            "source_sha256": "488784aa6ffcb677a63fdc07620f0ca406b0a723b8e5799015da53ae543829c7",
+            "token_sha256": "ab2781d67de5c2244571affedef62bd0b4d9a5caebe832c7c8de1e47a0afb98f"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\TranslationScope",
+            "new_fqcn": "Kumwe\\Localization\\Application\\TranslationScope",
+            "source_path": "src/Localization/Application/TranslationScope.php",
+            "target_path": "src/Application/TranslationScope.php",
+            "source_sha256": "5f55cfd6bc499c5d801347a4255fdc1dbfcf4f67a276333dc16696cadb2297c7",
+            "token_sha256": "65d3bafcc64392fd1a9f2d7f5479c464b7c6cfbf8dec16ad631454679945e05f"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Application\\Translator",
+            "new_fqcn": "Kumwe\\Localization\\Application\\Translator",
+            "source_path": "src/Localization/Application/Translator.php",
+            "target_path": "src/Application/Translator.php",
+            "source_sha256": "4e68f6b36ad2534b43c70f0f578964eda01e7105af0942f03c15fe9af3c9efab",
+            "token_sha256": "09a8ea84930292ba3f4efed3ccbd2ced76d33fe28064701b509a0870dee14e9a"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Domain\\InvalidLocaleTag",
+            "new_fqcn": "Kumwe\\Localization\\Domain\\InvalidLocaleTag",
+            "source_path": "src/Localization/Domain/InvalidLocaleTag.php",
+            "target_path": "src/Domain/InvalidLocaleTag.php",
+            "source_sha256": "66eaf2b153bff59a4607d212e7600caa01b02f904435efc5d54189b6e4006f3d",
+            "token_sha256": "052486383f3ef5277cf1537c5967fdf17ae84d0d0dce0ba899520ff4f912300b"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Domain\\InvalidMessageIdentifier",
+            "new_fqcn": "Kumwe\\Localization\\Domain\\InvalidMessageIdentifier",
+            "source_path": "src/Localization/Domain/InvalidMessageIdentifier.php",
+            "target_path": "src/Domain/InvalidMessageIdentifier.php",
+            "source_sha256": "818c1ca3478ca608436984b0bd011610359e324df896bab4b780a4bfb23de18c",
+            "token_sha256": "b911f8ed9fb5328ba7e1c402e33ad7ecc6499d91342ddd9fdcab740cb673997e"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Domain\\LocaleTag",
+            "new_fqcn": "Kumwe\\Localization\\Domain\\LocaleTag",
+            "source_path": "src/Localization/Domain/LocaleTag.php",
+            "target_path": "src/Domain/LocaleTag.php",
+            "source_sha256": "3e6c664b23d9bc737f3a29ef871f49b2b37b27749c2e2a549d09e1a7ebcd07e1",
+            "token_sha256": "45681ebe5000bd7687b15f4c9ea7a13edece1c670f5cdd954bbc0c3aff5fd47e"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Domain\\MessageCatalogue",
+            "new_fqcn": "Kumwe\\Localization\\Domain\\MessageCatalogue",
+            "source_path": "src/Localization/Domain/MessageCatalogue.php",
+            "target_path": "src/Domain/MessageCatalogue.php",
+            "source_sha256": "8305ba2b3ee6d8db268662bb3f397c96bab03d645447967c1725c9b184d59634",
+            "token_sha256": "bcb2ce950698f03dfbd9f7df96e4153d7598bd037d761e0f29b701dd7e8a7a49"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Domain\\MessageCatalogueChain",
+            "new_fqcn": "Kumwe\\Localization\\Domain\\MessageCatalogueChain",
+            "source_path": "src/Localization/Domain/MessageCatalogueChain.php",
+            "target_path": "src/Domain/MessageCatalogueChain.php",
+            "source_sha256": "5d640552b78900f87fa8a004e2ed9d2f0b3d7ee2af2706c5cdf94c88cf4e83f3",
+            "token_sha256": "cc154d802015537c6cf7e3a927856802922ae712f14b856fc1cf5563e4f8a642"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Domain\\MessageCatalogueLayer",
+            "new_fqcn": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+            "source_path": "src/Localization/Domain/MessageCatalogueLayer.php",
+            "target_path": "src/Domain/MessageCatalogueLayer.php",
+            "source_sha256": "0d33b4935ab03617f7997d32f69df2b2950372a7dcae027a6b9801f91d51e27e",
+            "token_sha256": "91709de8d18e2155d861986ec486081b56a9ee0bcf1f180d6d6b42af4d8560f5"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Domain\\MessageIdentifier",
+            "new_fqcn": "Kumwe\\Localization\\Domain\\MessageIdentifier",
+            "source_path": "src/Localization/Domain/MessageIdentifier.php",
+            "target_path": "src/Domain/MessageIdentifier.php",
+            "source_sha256": "922a6c3961f808a7d64f05835a7ce8d967dcb1a10a1a7be935487a47d097ff86",
+            "token_sha256": "ca9096170e886f2f37772a1af90294da6f4b4662cc302b979fbf75d60679380e"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Domain\\TextDirection",
+            "new_fqcn": "Kumwe\\Localization\\Domain\\TextDirection",
+            "source_path": "src/Localization/Domain/TextDirection.php",
+            "target_path": "src/Domain/TextDirection.php",
+            "source_sha256": "154b76952e872ea56f533fb249c0aeb33271053778ffa027f3ce64392f1935e6",
+            "token_sha256": "c9c964edf304ead72e1a0477fa9ecf6de6c899ada2032b71b98d1669fa66dc53"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Infrastructure\\IntlExtensionMissing",
+            "new_fqcn": "Kumwe\\Localization\\Infrastructure\\IntlExtensionMissing",
+            "source_path": "src/Localization/Infrastructure/IntlExtensionMissing.php",
+            "target_path": "src/Infrastructure/IntlExtensionMissing.php",
+            "source_sha256": "e2bf328534759fe2fd0873dfb4cffcb515bf6c4711e83a9d79259ab2f18cc854",
+            "token_sha256": "fb520ce21efe9daa3cd41f26e8483a4f683c711199c0ba0f130e092cf1b8e3ae"
+        },
+        {
+            "old_fqcn": "Kumwe\\App\\Localization\\Infrastructure\\IntlMessagePatternFormatter",
+            "new_fqcn": "Kumwe\\Localization\\Infrastructure\\IntlMessagePatternFormatter",
+            "source_path": "src/Localization/Infrastructure/IntlMessagePatternFormatter.php",
+            "target_path": "src/Infrastructure/IntlMessagePatternFormatter.php",
+            "source_sha256": "079a857eb02b22c0d90d98ef9ab55be0d26c2f6b636c832b4a22e2e96f578f17",
+            "token_sha256": "1f3756af4f076b489205aca5787febb7375c073cf845fe8e99e3798aba24edae"
+        }
+    ]
+}

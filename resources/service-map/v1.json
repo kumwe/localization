@@ -1,0 +1,30 @@
+{
+  "schema": "kumwe-package-service-map/v1",
+  "package": "kumwe/localization",
+  "release": "0.1.0",
+  "config_provider": "Kumwe\\Localization\\ConfigProvider",
+  "provider_absence_reason": null,
+  "factories": [
+    {
+      "service": "Kumwe\\Localization\\Application\\CatalogueTranslator",
+      "factory": "Kumwe\\Localization\\Container\\CatalogueTranslatorFactory",
+      "lifetime": "non-shared"
+    },
+    {
+      "service": "Kumwe\\Localization\\Application\\LocaleNegotiator",
+      "factory": "Kumwe\\Localization\\Container\\LocaleNegotiatorFactory",
+      "lifetime": "non-shared"
+    }
+  ],
+  "aliases": {
+    "Kumwe\\Localization\\Application\\Translator": "Kumwe\\Localization\\Application\\CatalogueTranslator"
+  },
+  "delegators": [],
+  "configuration_keys": [
+    {
+      "key": "kumwe.localization.maximum_accept_language_bytes",
+      "default": 512,
+      "description": "Positive integer limit on Accept-Language header bytes; oversize headers fall through to the host default."
+    }
+  ]
+}
