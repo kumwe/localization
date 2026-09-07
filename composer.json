@@ -54,6 +54,7 @@
       "@lint",
       "@docs",
       "@architecture",
+      "@boundary:tokens",
       "@extraction:check",
       "@manifests",
       "@autoload:smoke",
@@ -68,7 +69,8 @@
     "security:audit": "composer audit --abandoned=fail",
     "extraction:check": "php tools/verify-extraction.php",
     "release:integrity": "bash tools/test-release-integrity.sh",
-    "test:ownership": "php tools/verify-test-ownership.php --self-test"
+    "test:ownership": "php tools/verify-test-ownership.php --self-test",
+    "boundary:tokens": "php tools/verify-boundary-tokens.php --self-test"
   },
   "config": {
     "sort-packages": true
