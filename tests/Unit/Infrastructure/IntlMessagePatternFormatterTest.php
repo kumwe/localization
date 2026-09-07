@@ -140,4 +140,21 @@ final class IntlMessagePatternFormatterTest extends TestCase
         self::assertStringContainsString('intl extension is required', $failure->getMessage());
         self::assertStringContainsString('not degraded to a substituting formatter', $failure->getMessage());
     }
+
+    /**
+     * Write-time validation accepts compilable Unicode patterns and refuses malformed ICU syntax.
+     * @return void
+     * @since 0.1.1
+     */
+    public function testValidationPortRefusesMalformedPatternsBeforeRendering(): void
+    {
+        $formatter = new IntlMessagePatternFormatter();
+        $formatter->validate('Grüße {name}', LocaleTag::fromString('de'));
+        self::assertSame(
+            'Grüße Ada',
+            $formatter->format('Grüße {name}', ['name' => 'Ada'], LocaleTag::fromString('de')),
+        );
+        $this->expectException(MessageFormattingFailed::class);
+        $formatter->validate('{count, plural, one {unterminated', LocaleTag::fromString('en-GB'));
+    }
 }
