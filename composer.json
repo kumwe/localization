@@ -61,10 +61,12 @@
       "@cs",
       "@analyse",
       "@test",
-      "@clean-consumer"
+      "@clean-consumer",
+      "@release:integrity"
     ],
     "security:audit": "composer audit --abandoned=fail",
-    "extraction:check": "php tools/verify-extraction.php"
+    "extraction:check": "php tools/verify-extraction.php",
+    "release:integrity": "bash tools/test-release-integrity.sh"
   },
   "config": {
     "sort-packages": true
