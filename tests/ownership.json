@@ -1,336 +1,338 @@
 {
-  "schema": "kumwe-test-ownership/v1",
-  "package": "kumwe/localization",
-  "api_manifest": "resources/public-api/v1.json",
-  "suite": {
-    "inventory_command": [
-      "php",
-      "tools/test-inventory.php"
-    ]
-  },
-  "exports": {
-    "Kumwe\\Localization\\Application\\ActiveLocale": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\ActiveLocaleBoundaryTest::testAdoptingLanguageAndScopePreservesTheOtherCoordinate"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\ActiveLocaleBoundaryTest::testUnitOfWorkEdgesInvalidateSnapshotsAndRestoreExplicitDefaults"
-      ]
-    },
-    "Kumwe\\Localization\\Application\\CatalogueTranslator": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares",
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAnOperatorChangesOneWordWithoutTakingOwnershipOfACatalogue"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAMissingTranslationFallsBackThroughTheLocaleThenToTheSourceLocale",
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testItRefusesToLookUpSourceTextAsAnIdentifier"
-      ]
-    },
-    "Kumwe\\Localization\\Application\\DefaultLocaleProvider": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testNegotiationMatrixPreservesPrecedenceAndBounds"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testProviderFailureIsNotSilentlyConverted"
-      ],
-      "note": "The package owns the port contract; listed cases exercise its signature or consumer path. Concrete host adapter behavior remains with its implementing repository."
-    },
-    "Kumwe\\Localization\\Application\\LocaleNegotiator": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testNegotiationMatrixPreservesPrecedenceAndBounds"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testProviderFailureIsNotSilentlyConverted"
-      ]
-    },
-    "Kumwe\\Localization\\Application\\MessageCatalogueRepository": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testTheRenderPathLoadsEachLayerOnceRatherThanOncePerMessage"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAMissingTranslationFallsBackThroughTheLocaleThenToTheSourceLocale"
-      ],
-      "note": "The package owns the port contract; listed cases exercise its signature or consumer path. Concrete host adapter behavior remains with its implementing repository."
-    },
-    "Kumwe\\Localization\\Application\\MessageFormattingFailed": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testAPatternThatDoesNotCompileIsReportedRatherThanRendered"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
-      ]
-    },
-    "Kumwe\\Localization\\Application\\MessageOverrideRecord": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\RecordAndCatalogueTest::testOverrideSerialization"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\RecordAndCatalogueTest::testOverrideSerialization"
-      ]
-    },
-    "Kumwe\\Localization\\Application\\MessageOverrideRepository": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testTheRenderPathLoadsEachLayerOnceRatherThanOncePerMessage"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testTwoUnitsOfWorkDoNotShareAnOverrideSnapshot"
-      ],
-      "note": "The package owns the port contract; listed cases exercise its signature or consumer path. Concrete host adapter behavior remains with its implementing repository."
-    },
-    "Kumwe\\Localization\\Application\\MessageOverrideStore": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\StoragePortTest::testMutationPortKeepsScopeExplicitAndSeparateFromTheReadPort"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\StoragePortTest::testMutationPortKeepsScopeExplicitAndSeparateFromTheReadPort"
-      ],
-      "note": "The package owns the port contract; listed cases exercise its signature or consumer path. Concrete host adapter behavior remains with its implementing repository."
-    },
-    "Kumwe\\Localization\\Application\\MessagePatternFormatter": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testEveryVersionTwoLanguageSelectsItsOwnPluralCategory"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testAPatternThatDoesNotCompileIsReportedRatherThanRendered"
-      ],
-      "note": "The package owns the port contract; listed cases exercise its signature or consumer path. Concrete host adapter behavior remains with its implementing repository."
-    },
-    "Kumwe\\Localization\\Application\\MessagePatternValidator": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
-      ],
-      "note": "The package owns the port contract; listed cases exercise its signature or consumer path. Concrete host adapter behavior remains with its implementing repository."
-    },
-    "Kumwe\\Localization\\Application\\SupportedLocales": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testSupportedLocalesAndSource"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testSupportedLocalesAndSource"
-      ]
-    },
-    "Kumwe\\Localization\\Application\\TranslationScope": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\ActiveLocaleBoundaryTest::testAdoptingLanguageAndScopePreservesTheOtherCoordinate"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\ActiveLocaleBoundaryTest::testUnitOfWorkEdgesInvalidateSnapshotsAndRestoreExplicitDefaults"
-      ]
-    },
-    "Kumwe\\Localization\\Application\\Translator": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares",
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAnOperatorChangesOneWordWithoutTakingOwnershipOfACatalogue"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAMissingTranslationFallsBackThroughTheLocaleThenToTheSourceLocale",
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testItRefusesToLookUpSourceTextAsAnIdentifier"
-      ],
-      "note": "The package owns the port contract; listed cases exercise its signature or consumer path. Concrete host adapter behavior remains with its implementing repository."
-    },
-    "Kumwe\\Localization\\ConfigProvider": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testServicesAndLifetimes"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testInvalidConfigurationShapesFailClosed",
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testPositiveLimitAndWrongBindings"
-      ]
-    },
-    "Kumwe\\Localization\\Container\\CatalogueTranslatorFactory": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testServicesAndLifetimes"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testInvalidConfigurationShapesFailClosed",
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testPositiveLimitAndWrongBindings"
-      ]
-    },
-    "Kumwe\\Localization\\Container\\LocaleNegotiatorFactory": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testServicesAndLifetimes"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testInvalidConfigurationShapesFailClosed",
-        "Kumwe\\Localization\\Tests\\Unit\\ContainerTest::testPositiveLimitAndWrongBindings"
-      ]
-    },
-    "Kumwe\\Localization\\Domain\\InvalidLocaleTag": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItRefusesAValueThatIsNotALanguageTag"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItRefusesAValueThatIsNotALanguageTag"
-      ]
-    },
-    "Kumwe\\Localization\\Domain\\InvalidMessageIdentifier": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesMalformedSegmentsAndOverLongIdentifiers"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesMalformedSegmentsAndOverLongIdentifiers"
-      ]
-    },
-    "Kumwe\\Localization\\Domain\\LocaleTag": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItNormalisesCasingAndSeparatorsSoTwoSpellingsAreOneValue",
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItDerivesTheWritingDirectionFromTheScriptThenTheLanguage"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItRefusesAValueThatIsNotALanguageTag",
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItRefusesATagCarryingMoreThanLanguageScriptAndRegion"
-      ]
-    },
-    "Kumwe\\Localization\\Domain\\MessageCatalogue": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\RecordAndCatalogueTest::testCatalogueOrderAndEmptyValues"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\RecordAndCatalogueTest::testCatalogueOrderAndEmptyValues"
-      ]
-    },
-    "Kumwe\\Localization\\Domain\\MessageCatalogueChain": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAMessageNoLayerCarriesComesBackAsItsIdentifierRatherThanAsNothing"
-      ]
-    },
-    "Kumwe\\Localization\\Domain\\MessageCatalogueLayer": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares"
-      ]
-    },
-    "Kumwe\\Localization\\Domain\\MessageIdentifier": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItAcceptsAStableNamespacedDottedIdentifier"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesTheSourceTextAsTheLookupKey",
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesAnIdentifierEndingInSentencePunctuation"
-      ]
-    },
-    "Kumwe\\Localization\\Domain\\TextDirection": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItDerivesTheWritingDirectionFromTheScriptThenTheLanguage"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItDerivesTheWritingDirectionFromTheScriptThenTheLanguage"
-      ]
-    },
-    "Kumwe\\Localization\\Infrastructure\\IntlExtensionMissing": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testTheMissingExtensionFailureNamesTheExtensionAndTheConsequence"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testTheMissingExtensionFailureNamesTheExtensionAndTheConsequence"
-      ]
-    },
-    "Kumwe\\Localization\\Infrastructure\\IntlMessagePatternFormatter": {
-      "behavior": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testEveryVersionTwoLanguageSelectsItsOwnPluralCategory"
-      ],
-      "boundary": [
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testAPatternThatDoesNotCompileIsReportedRatherThanRendered",
-        "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
-      ]
-    }
-  },
-  "conformance": {
-    "status": "owned",
-    "rationale": "Locale, fallback and ICU conformance matrices are embedded in package tests with explicit expected outputs; host delivery and policy are separate.",
-    "tests": [
-      "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItNormalisesCasingAndSeparatorsSoTwoSpellingsAreOneValue",
-      "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testEveryVersionTwoLanguageSelectsItsOwnPluralCategory"
-    ],
-    "corpora": []
-  },
-  "architecture": [
-    "tools/verify-architecture.php"
+ "schema": "kumwe-test-ownership/v1",
+ "package": "kumwe/localization",
+ "api_manifest": "resources/public-api/v1.json",
+ "suite": {
+  "inventory_command": [
+   "php",
+   "tools/test-inventory.php"
   ],
-  "host": {
-    "repository": "kumwe/app",
-    "baseline": "960ce8ec00cf724a7cae03e5ba09c4852c9ab54e",
-    "transfers": [
-      {
-        "source_test": "tests/Unit/Localization/Domain/LocaleTagTest.php",
-        "action": "remove-on-adoption",
-        "package_tests": [
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItNormalisesCasingAndSeparatorsSoTwoSpellingsAreOneValue",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItDerivesTheWritingDirectionFromTheScriptThenTheLanguage",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItFallsBackFromTheMostSpecificFormToTheBareLanguage",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItRefusesAValueThatIsNotALanguageTag",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\LocaleTagTest::testItRefusesATagCarryingMoreThanLanguageScriptAndRegion"
-        ],
-        "retained": "Keep host settings, authorization, persistence, delivery and lifecycle integration."
-      },
-      {
-        "source_test": "tests/Unit/Localization/Domain/MessageIdentifierTest.php",
-        "action": "remove-on-adoption",
-        "package_tests": [
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItAcceptsAStableNamespacedDottedIdentifier",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesTheSourceTextAsTheLookupKey",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesAnIdentifierEndingInSentencePunctuation",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesAnUnnamespacedIdentifierFromAnExtension",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesAnIdentifierThatDiffersFromAnotherOnlyByCase",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesAnIdentifierWithFewerThanThreeSegments",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItRefusesMalformedSegmentsAndOverLongIdentifiers",
-          "Kumwe\\Localization\\Tests\\Unit\\Domain\\MessageIdentifierTest::testItKeepsARejectedValuePrintableInsideTheMessage"
-        ],
-        "retained": "Keep host settings, authorization, persistence, delivery and lifecycle integration."
-      },
-      {
-        "source_test": "tests/Unit/Localization/Application/CatalogueTranslatorTest.php",
-        "action": "remove-on-adoption",
-        "package_tests": [
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAnOperatorChangesOneWordWithoutTakingOwnershipOfACatalogue",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testTerminologyMayBeAdaptedForOneLanguageWithoutTouchingTheOthers",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAMissingTranslationFallsBackThroughTheLocaleThenToTheSourceLocale",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testAMessageNoLayerCarriesComesBackAsItsIdentifierRatherThanAsNothing",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testTheRenderPathLoadsEachLayerOnceRatherThanOncePerMessage",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testTwoUnitsOfWorkInOneProcessRenderInTheirOwnLanguage",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testTwoUnitsOfWorkDoNotShareAnOverrideSnapshot",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\CatalogueTranslatorTest::testItRefusesToLookUpSourceTextAsAnIdentifier"
-        ],
-        "retained": "Keep host settings, authorization, persistence, delivery and lifecycle integration."
-      },
-      {
-        "source_test": "tests/Unit/Localization/Infrastructure/IntlMessagePatternFormatterTest.php",
-        "action": "remove-on-adoption",
-        "package_tests": [
-          "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testEveryVersionTwoLanguageSelectsItsOwnPluralCategory",
-          "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testArabicSelectsAllSixOfItsPluralCategories",
-          "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testItSelectsOnGenderAndOnABooleanFlag",
-          "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testItFormatsOrdinalsNumbersAndCurrencyPerLocale",
-          "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testItFormatsADateInTheLocaleRatherThanInTheProcessLocale",
-          "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testAPatternThatDoesNotCompileIsReportedRatherThanRendered",
-          "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testTheMissingExtensionFailureNamesTheExtensionAndTheConsequence",
-          "Kumwe\\Localization\\Tests\\Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
-        ],
-        "retained": "Keep host settings, authorization, persistence, delivery and lifecycle integration."
-      },
-      {
-        "source_test": "tests/Unit/Localization/Http/LocaleNegotiationMiddlewareTest.php",
-        "action": "split-on-adoption",
-        "package_tests": [
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testNegotiationMatrixPreservesPrecedenceAndBounds",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testSupportedLocalesAndSource",
-          "Kumwe\\Localization\\Tests\\Unit\\Application\\LocaleNegotiatorTest::testProviderFailureIsNotSilentlyConverted"
-        ],
-        "retained": "Keep middleware/request parsing and settings composition; remove only duplicated portable negotiation assertions."
-      }
-    ],
-    "retained_responsibilities": [
-      "Authorized overrides/default settings, persistence, cache invalidation, middleware, Twig and browser output."
-    ]
+  "namespace_prefix": "Kumwe\\Localization\\Tests\\"
+ },
+ "exports": {
+  "Kumwe\\Localization\\Application\\ActiveLocale": {
+   "behavior": [
+    "Unit\\Application\\ActiveLocaleBoundaryTest::testAdoptingLanguageAndScopePreservesTheOtherCoordinate"
+   ],
+   "boundary": [
+    "Unit\\Application\\ActiveLocaleBoundaryTest::testUnitOfWorkEdgesInvalidateSnapshotsAndRestoreExplicitDefaults"
+   ]
+  },
+  "Kumwe\\Localization\\Application\\CatalogueTranslator": {
+   "behavior": [
+    "Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares",
+    "Unit\\Application\\CatalogueTranslatorTest::testAnOperatorChangesOneWordWithoutTakingOwnershipOfACatalogue"
+   ],
+   "boundary": [
+    "Unit\\Application\\CatalogueTranslatorTest::testAMissingTranslationFallsBackThroughTheLocaleThenToTheSourceLocale",
+    "Unit\\Application\\CatalogueTranslatorTest::testItRefusesToLookUpSourceTextAsAnIdentifier"
+   ]
+  },
+  "Kumwe\\Localization\\Application\\DefaultLocaleProvider": {
+   "behavior": [
+    "Unit\\Application\\LocaleNegotiatorTest::testNegotiationMatrixPreservesPrecedenceAndBounds"
+   ],
+   "boundary": [
+    "Unit\\Application\\LocaleNegotiatorTest::testProviderFailureIsNotSilentlyConverted"
+   ],
+   "note": "Owns port signature/consumer contract; concrete adapters own their implementation behavior."
+  },
+  "Kumwe\\Localization\\Application\\LocaleNegotiator": {
+   "behavior": [
+    "Unit\\Application\\LocaleNegotiatorTest::testNegotiationMatrixPreservesPrecedenceAndBounds"
+   ],
+   "boundary": [
+    "Unit\\Application\\LocaleNegotiatorTest::testProviderFailureIsNotSilentlyConverted"
+   ]
+  },
+  "Kumwe\\Localization\\Application\\MessageCatalogueRepository": {
+   "behavior": [
+    "Unit\\Application\\CatalogueTranslatorTest::testTheRenderPathLoadsEachLayerOnceRatherThanOncePerMessage"
+   ],
+   "boundary": [
+    "Unit\\Application\\CatalogueTranslatorTest::testAMissingTranslationFallsBackThroughTheLocaleThenToTheSourceLocale"
+   ],
+   "note": "Owns port signature/consumer contract; concrete adapters own their implementation behavior."
+  },
+  "Kumwe\\Localization\\Application\\MessageFormattingFailed": {
+   "behavior": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testAPatternThatDoesNotCompileIsReportedRatherThanRendered"
+   ],
+   "boundary": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
+   ]
+  },
+  "Kumwe\\Localization\\Application\\MessageOverrideRecord": {
+   "behavior": [
+    "Unit\\Application\\RecordAndCatalogueTest::testOverrideSerialization"
+   ],
+   "boundary": [
+    "Unit\\Application\\RecordAndCatalogueTest::testOverrideSerialization"
+   ]
+  },
+  "Kumwe\\Localization\\Application\\MessageOverrideRepository": {
+   "behavior": [
+    "Unit\\Application\\CatalogueTranslatorTest::testTheRenderPathLoadsEachLayerOnceRatherThanOncePerMessage"
+   ],
+   "boundary": [
+    "Unit\\Application\\CatalogueTranslatorTest::testTwoUnitsOfWorkDoNotShareAnOverrideSnapshot"
+   ],
+   "note": "Owns port signature/consumer contract; concrete adapters own their implementation behavior."
+  },
+  "Kumwe\\Localization\\Application\\MessageOverrideStore": {
+   "behavior": [
+    "Unit\\Application\\StoragePortTest::testMutationPortKeepsScopeExplicitAndSeparateFromTheReadPort"
+   ],
+   "boundary": [
+    "Unit\\Application\\StoragePortTest::testMutationPortKeepsScopeExplicitAndSeparateFromTheReadPort"
+   ],
+   "note": "Owns port signature/consumer contract; concrete adapters own their implementation behavior."
+  },
+  "Kumwe\\Localization\\Application\\MessagePatternFormatter": {
+   "behavior": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testEveryVersionTwoLanguageSelectsItsOwnPluralCategory"
+   ],
+   "boundary": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testAPatternThatDoesNotCompileIsReportedRatherThanRendered"
+   ],
+   "note": "Owns port signature/consumer contract; concrete adapters own their implementation behavior."
+  },
+  "Kumwe\\Localization\\Application\\MessagePatternValidator": {
+   "behavior": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
+   ],
+   "boundary": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
+   ],
+   "note": "Owns port signature/consumer contract; concrete adapters own their implementation behavior."
+  },
+  "Kumwe\\Localization\\Application\\SupportedLocales": {
+   "behavior": [
+    "Unit\\Application\\LocaleNegotiatorTest::testSupportedLocalesAndSource"
+   ],
+   "boundary": [
+    "Unit\\Application\\LocaleNegotiatorTest::testSupportedLocalesAndSource"
+   ]
+  },
+  "Kumwe\\Localization\\Application\\TranslationScope": {
+   "behavior": [
+    "Unit\\Application\\ActiveLocaleBoundaryTest::testAdoptingLanguageAndScopePreservesTheOtherCoordinate"
+   ],
+   "boundary": [
+    "Unit\\Application\\ActiveLocaleBoundaryTest::testUnitOfWorkEdgesInvalidateSnapshotsAndRestoreExplicitDefaults"
+   ]
+  },
+  "Kumwe\\Localization\\Application\\Translator": {
+   "behavior": [
+    "Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares",
+    "Unit\\Application\\CatalogueTranslatorTest::testAnOperatorChangesOneWordWithoutTakingOwnershipOfACatalogue"
+   ],
+   "boundary": [
+    "Unit\\Application\\CatalogueTranslatorTest::testAMissingTranslationFallsBackThroughTheLocaleThenToTheSourceLocale",
+    "Unit\\Application\\CatalogueTranslatorTest::testItRefusesToLookUpSourceTextAsAnIdentifier"
+   ],
+   "note": "Owns port signature/consumer contract; concrete adapters own their implementation behavior."
+  },
+  "Kumwe\\Localization\\ConfigProvider": {
+   "behavior": [
+    "Unit\\ContainerTest::testServicesAndLifetimes"
+   ],
+   "boundary": [
+    "Unit\\ContainerTest::testInvalidConfigurationShapesFailClosed",
+    "Unit\\ContainerTest::testPositiveLimitAndWrongBindings"
+   ]
+  },
+  "Kumwe\\Localization\\Container\\CatalogueTranslatorFactory": {
+   "behavior": [
+    "Unit\\ContainerTest::testServicesAndLifetimes"
+   ],
+   "boundary": [
+    "Unit\\ContainerTest::testInvalidConfigurationShapesFailClosed",
+    "Unit\\ContainerTest::testPositiveLimitAndWrongBindings"
+   ]
+  },
+  "Kumwe\\Localization\\Container\\LocaleNegotiatorFactory": {
+   "behavior": [
+    "Unit\\ContainerTest::testServicesAndLifetimes"
+   ],
+   "boundary": [
+    "Unit\\ContainerTest::testInvalidConfigurationShapesFailClosed",
+    "Unit\\ContainerTest::testPositiveLimitAndWrongBindings"
+   ]
+  },
+  "Kumwe\\Localization\\Domain\\InvalidLocaleTag": {
+   "behavior": [
+    "Unit\\Domain\\LocaleTagTest::testItRefusesAValueThatIsNotALanguageTag"
+   ],
+   "boundary": [
+    "Unit\\Domain\\LocaleTagTest::testItRefusesAValueThatIsNotALanguageTag"
+   ]
+  },
+  "Kumwe\\Localization\\Domain\\InvalidMessageIdentifier": {
+   "behavior": [
+    "Unit\\Domain\\MessageIdentifierTest::testItRefusesMalformedSegmentsAndOverLongIdentifiers"
+   ],
+   "boundary": [
+    "Unit\\Domain\\MessageIdentifierTest::testItRefusesMalformedSegmentsAndOverLongIdentifiers"
+   ]
+  },
+  "Kumwe\\Localization\\Domain\\LocaleTag": {
+   "behavior": [
+    "Unit\\Domain\\LocaleTagTest::testItNormalisesCasingAndSeparatorsSoTwoSpellingsAreOneValue",
+    "Unit\\Domain\\LocaleTagTest::testItDerivesTheWritingDirectionFromTheScriptThenTheLanguage"
+   ],
+   "boundary": [
+    "Unit\\Domain\\LocaleTagTest::testItRefusesAValueThatIsNotALanguageTag",
+    "Unit\\Domain\\LocaleTagTest::testItRefusesATagCarryingMoreThanLanguageScriptAndRegion"
+   ]
+  },
+  "Kumwe\\Localization\\Domain\\MessageCatalogue": {
+   "behavior": [
+    "Unit\\Application\\RecordAndCatalogueTest::testCatalogueOrderAndEmptyValues"
+   ],
+   "boundary": [
+    "Unit\\Application\\RecordAndCatalogueTest::testCatalogueOrderAndEmptyValues"
+   ]
+  },
+  "Kumwe\\Localization\\Domain\\MessageCatalogueChain": {
+   "behavior": [
+    "Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares"
+   ],
+   "boundary": [
+    "Unit\\Application\\CatalogueTranslatorTest::testAMessageNoLayerCarriesComesBackAsItsIdentifierRatherThanAsNothing"
+   ]
+  },
+  "Kumwe\\Localization\\Domain\\MessageCatalogueLayer": {
+   "behavior": [
+    "Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares"
+   ],
+   "boundary": [
+    "Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares"
+   ]
+  },
+  "Kumwe\\Localization\\Domain\\MessageIdentifier": {
+   "behavior": [
+    "Unit\\Domain\\MessageIdentifierTest::testItAcceptsAStableNamespacedDottedIdentifier"
+   ],
+   "boundary": [
+    "Unit\\Domain\\MessageIdentifierTest::testItRefusesTheSourceTextAsTheLookupKey",
+    "Unit\\Domain\\MessageIdentifierTest::testItRefusesAnIdentifierEndingInSentencePunctuation"
+   ]
+  },
+  "Kumwe\\Localization\\Domain\\TextDirection": {
+   "behavior": [
+    "Unit\\Domain\\LocaleTagTest::testItDerivesTheWritingDirectionFromTheScriptThenTheLanguage"
+   ],
+   "boundary": [
+    "Unit\\Domain\\LocaleTagTest::testItDerivesTheWritingDirectionFromTheScriptThenTheLanguage"
+   ]
+  },
+  "Kumwe\\Localization\\Infrastructure\\IntlExtensionMissing": {
+   "behavior": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testTheMissingExtensionFailureNamesTheExtensionAndTheConsequence"
+   ],
+   "boundary": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testTheMissingExtensionFailureNamesTheExtensionAndTheConsequence"
+   ]
+  },
+  "Kumwe\\Localization\\Infrastructure\\IntlMessagePatternFormatter": {
+   "behavior": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testEveryVersionTwoLanguageSelectsItsOwnPluralCategory"
+   ],
+   "boundary": [
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testAPatternThatDoesNotCompileIsReportedRatherThanRendered",
+    "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
+   ]
   }
+ },
+ "conformance": {
+  "status": "owned",
+  "rationale": "Embedded locale, fallback and ICU matrices; host delivery and policy stay separate.",
+  "tests": [
+   "Unit\\Domain\\LocaleTagTest::testItNormalisesCasingAndSeparatorsSoTwoSpellingsAreOneValue",
+   "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testEveryVersionTwoLanguageSelectsItsOwnPluralCategory"
+  ],
+  "corpora": []
+ },
+ "architecture": [
+  "tools/verify-architecture.php",
+  "tools/verify-boundary-tokens.php"
+ ],
+ "host": {
+  "repository": "kumwe/app",
+  "baseline": "960ce8ec00cf724a7cae03e5ba09c4852c9ab54e",
+  "transfers": [
+   {
+    "source_test": "tests/Unit/Localization/Domain/LocaleTagTest.php",
+    "action": "remove-on-adoption",
+    "package_tests": [
+     "Unit\\Domain\\LocaleTagTest::testItNormalisesCasingAndSeparatorsSoTwoSpellingsAreOneValue",
+     "Unit\\Domain\\LocaleTagTest::testItDerivesTheWritingDirectionFromTheScriptThenTheLanguage",
+     "Unit\\Domain\\LocaleTagTest::testItFallsBackFromTheMostSpecificFormToTheBareLanguage",
+     "Unit\\Domain\\LocaleTagTest::testItRefusesAValueThatIsNotALanguageTag",
+     "Unit\\Domain\\LocaleTagTest::testItRefusesATagCarryingMoreThanLanguageScriptAndRegion"
+    ],
+    "retained": "Keep host settings, authorization, persistence, delivery and lifecycle integration."
+   },
+   {
+    "source_test": "tests/Unit/Localization/Domain/MessageIdentifierTest.php",
+    "action": "remove-on-adoption",
+    "package_tests": [
+     "Unit\\Domain\\MessageIdentifierTest::testItAcceptsAStableNamespacedDottedIdentifier",
+     "Unit\\Domain\\MessageIdentifierTest::testItRefusesTheSourceTextAsTheLookupKey",
+     "Unit\\Domain\\MessageIdentifierTest::testItRefusesAnIdentifierEndingInSentencePunctuation",
+     "Unit\\Domain\\MessageIdentifierTest::testItRefusesAnUnnamespacedIdentifierFromAnExtension",
+     "Unit\\Domain\\MessageIdentifierTest::testItRefusesAnIdentifierThatDiffersFromAnotherOnlyByCase",
+     "Unit\\Domain\\MessageIdentifierTest::testItRefusesAnIdentifierWithFewerThanThreeSegments",
+     "Unit\\Domain\\MessageIdentifierTest::testItRefusesMalformedSegmentsAndOverLongIdentifiers",
+     "Unit\\Domain\\MessageIdentifierTest::testItKeepsARejectedValuePrintableInsideTheMessage"
+    ],
+    "retained": "Keep host settings, authorization, persistence, delivery and lifecycle integration."
+   },
+   {
+    "source_test": "tests/Unit/Localization/Application/CatalogueTranslatorTest.php",
+    "action": "remove-on-adoption",
+    "package_tests": [
+     "Unit\\Application\\CatalogueTranslatorTest::testEachLayerOfTheChainOverridesOnlyTheIdentifierItDeclares",
+     "Unit\\Application\\CatalogueTranslatorTest::testAnOperatorChangesOneWordWithoutTakingOwnershipOfACatalogue",
+     "Unit\\Application\\CatalogueTranslatorTest::testTerminologyMayBeAdaptedForOneLanguageWithoutTouchingTheOthers",
+     "Unit\\Application\\CatalogueTranslatorTest::testAMissingTranslationFallsBackThroughTheLocaleThenToTheSourceLocale",
+     "Unit\\Application\\CatalogueTranslatorTest::testAMessageNoLayerCarriesComesBackAsItsIdentifierRatherThanAsNothing",
+     "Unit\\Application\\CatalogueTranslatorTest::testTheRenderPathLoadsEachLayerOnceRatherThanOncePerMessage",
+     "Unit\\Application\\CatalogueTranslatorTest::testTwoUnitsOfWorkInOneProcessRenderInTheirOwnLanguage",
+     "Unit\\Application\\CatalogueTranslatorTest::testTwoUnitsOfWorkDoNotShareAnOverrideSnapshot",
+     "Unit\\Application\\CatalogueTranslatorTest::testItRefusesToLookUpSourceTextAsAnIdentifier"
+    ],
+    "retained": "Keep host settings, authorization, persistence, delivery and lifecycle integration."
+   },
+   {
+    "source_test": "tests/Unit/Localization/Infrastructure/IntlMessagePatternFormatterTest.php",
+    "action": "remove-on-adoption",
+    "package_tests": [
+     "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testEveryVersionTwoLanguageSelectsItsOwnPluralCategory",
+     "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testArabicSelectsAllSixOfItsPluralCategories",
+     "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testItSelectsOnGenderAndOnABooleanFlag",
+     "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testItFormatsOrdinalsNumbersAndCurrencyPerLocale",
+     "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testItFormatsADateInTheLocaleRatherThanInTheProcessLocale",
+     "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testAPatternThatDoesNotCompileIsReportedRatherThanRendered",
+     "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testTheMissingExtensionFailureNamesTheExtensionAndTheConsequence",
+     "Unit\\Infrastructure\\IntlMessagePatternFormatterTest::testValidationPortRefusesMalformedPatternsBeforeRendering"
+    ],
+    "retained": "Keep host settings, authorization, persistence, delivery and lifecycle integration."
+   },
+   {
+    "source_test": "tests/Unit/Localization/Http/LocaleNegotiationMiddlewareTest.php",
+    "action": "split-on-adoption",
+    "package_tests": [
+     "Unit\\Application\\LocaleNegotiatorTest::testNegotiationMatrixPreservesPrecedenceAndBounds",
+     "Unit\\Application\\LocaleNegotiatorTest::testSupportedLocalesAndSource",
+     "Unit\\Application\\LocaleNegotiatorTest::testProviderFailureIsNotSilentlyConverted"
+    ],
+    "retained": "Keep request/settings composition; split only duplicate portable negotiation assertions."
+   }
+  ],
+  "retained_responsibilities": [
+   "Authorized overrides/default settings, persistence, cache invalidation, middleware, Twig and browser output."
+  ]
+ }
 }

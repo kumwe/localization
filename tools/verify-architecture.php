@@ -38,8 +38,12 @@ foreach ($iterator as $file) {
             continue;
         }
         if (
-            $token[0] === T_STRING
-            && in_array($token[1], ['class_alias', 'class_exists', 'setlocale', 'getenv'], true)
+            in_array($token[0], [T_STRING, T_NAME_FULLY_QUALIFIED], true)
+            && in_array(
+                strtolower(ltrim($token[1], '\\')),
+                ['class_alias', 'class_exists', 'setlocale', 'getenv'],
+                true,
+            )
         ) {
             $failures[] = $relative . ' invokes prohibited process-state or compatibility behavior.';
         }
