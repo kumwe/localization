@@ -2,6 +2,9 @@
 
 ## 0.1.1
 
+- Unify PR and post-rebase release gates, dynamic release identity, tested publication retries,
+  and administrator setup across the package family. Preserve immutable release and dependency evidence requirements.
+
 - NRM-2026-006: require protected main before publication and verify the exact release is published,
   stable and immutable. Preserve existing tag ancestry and changelog checks; refuse mutable release metadata.
 - Record a successor to 0.1.0 with refreshed release manifests and handoff. Runtime code, public signatures
