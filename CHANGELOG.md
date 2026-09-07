@@ -7,4 +7,4 @@
 - Separate locale negotiation from host settings through DefaultLocaleProvider.
 - Provide explicit translator/negotiator factories, manifests, package tests and release gates.
 - Retain authorization, settings, persistence, catalogue build/cache adapters and delivery in App.
-- Roadmap impact: enabling extraction only; App adoption requires a separately verified release.
+- NRM-2026-006: enabling extraction only; App adoption requires a separately verified release.

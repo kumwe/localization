@@ -1,0 +1,88 @@
+{
+  "schema": "kumwe-package-capabilities/v1",
+  "package": "kumwe/localization",
+  "release": "0.1.0",
+  "namespace": "Kumwe\\Localization\\",
+  "responsibility": "Portable locale, catalogue, translation, formatting and negotiation behavior.",
+  "non_responsibilities": [
+    "Authorization and trusted scope selection",
+    "Site settings and administered mutation services",
+    "Doctrine persistence and transactions",
+    "Catalogue file build/cache adapters, HTTP middleware, Twig and delivery"
+  ],
+  "capabilities": [
+    {
+      "id": "localization.locale",
+      "title": "Locale values and negotiation",
+      "description": "Canonical bounded locale tags, supported-locale preference and explicit host-default negotiation.",
+      "symbols": [
+        "Kumwe\\Localization\\Application\\ActiveLocale",
+        "Kumwe\\Localization\\Application\\DefaultLocaleProvider",
+        "Kumwe\\Localization\\Application\\LocaleNegotiator",
+        "Kumwe\\Localization\\Application\\SupportedLocales",
+        "Kumwe\\Localization\\Application\\TranslationScope",
+        "Kumwe\\Localization\\Domain\\InvalidLocaleTag",
+        "Kumwe\\Localization\\Domain\\LocaleTag",
+        "Kumwe\\Localization\\Domain\\TextDirection"
+      ],
+      "documentation": [
+        "docs/public-api.md",
+        "docs/integration.md"
+      ]
+    },
+    {
+      "id": "localization.catalogue",
+      "title": "Catalogues and override records",
+      "description": "Layered catalogue resolution, stable message identifiers, override records and storage contracts.",
+      "symbols": [
+        "Kumwe\\Localization\\Application\\MessageCatalogueRepository",
+        "Kumwe\\Localization\\Application\\MessageOverrideRecord",
+        "Kumwe\\Localization\\Application\\MessageOverrideRepository",
+        "Kumwe\\Localization\\Application\\MessageOverrideStore",
+        "Kumwe\\Localization\\Domain\\InvalidMessageIdentifier",
+        "Kumwe\\Localization\\Domain\\MessageCatalogue",
+        "Kumwe\\Localization\\Domain\\MessageCatalogueChain",
+        "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+        "Kumwe\\Localization\\Domain\\MessageIdentifier"
+      ],
+      "documentation": [
+        "docs/public-api.md",
+        "docs/integration.md"
+      ]
+    },
+    {
+      "id": "localization.translation",
+      "title": "Translation and ICU formatting",
+      "description": "Operation-scoped memoized lookup and explicit ICU formatting errors.",
+      "symbols": [
+        "Kumwe\\Localization\\Application\\CatalogueTranslator",
+        "Kumwe\\Localization\\Application\\MessageFormattingFailed",
+        "Kumwe\\Localization\\Application\\MessagePatternFormatter",
+        "Kumwe\\Localization\\Application\\MessagePatternValidator",
+        "Kumwe\\Localization\\Application\\Translator",
+        "Kumwe\\Localization\\Infrastructure\\IntlExtensionMissing",
+        "Kumwe\\Localization\\Infrastructure\\IntlMessagePatternFormatter"
+      ],
+      "documentation": [
+        "docs/public-api.md",
+        "docs/integration.md"
+      ]
+    },
+    {
+      "id": "localization.container",
+      "title": "Explicit service composition",
+      "description": "Deterministic ConfigProvider and explicit final factories with operation-scoped lifetimes.",
+      "symbols": [
+        "Kumwe\\Localization\\ConfigProvider",
+        "Kumwe\\Localization\\Container\\CatalogueTranslatorFactory",
+        "Kumwe\\Localization\\Container\\LocaleNegotiatorFactory"
+      ],
+      "documentation": [
+        "docs/public-api.md",
+        "docs/integration.md"
+      ]
+    }
+  ],
+  "native_requirements": null,
+  "deprecations": []
+}

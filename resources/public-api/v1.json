@@ -1,0 +1,1716 @@
+{
+    "schema": "kumwe-package-public-api/v1",
+    "package": "kumwe/localization",
+    "release": "0.1.0",
+    "namespace": "Kumwe\\Localization\\",
+    "symbols": {
+        "Kumwe\\Localization\\Application\\ActiveLocale": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/ActiveLocale.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "supported",
+                            "type": "Kumwe\\Localization\\Application\\SupportedLocales",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "adoptLocale": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "adoptScope": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "scope",
+                            "type": "Kumwe\\Localization\\Application\\TranslationScope",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "begin": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "scope",
+                            "type": "?Kumwe\\Localization\\Application\\TranslationScope",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "end": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "void"
+                },
+                "generation": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "int"
+                },
+                "locale": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "Kumwe\\Localization\\Domain\\LocaleTag"
+                },
+                "scope": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "Kumwe\\Localization\\Application\\TranslationScope"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\CatalogueTranslator": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/CatalogueTranslator.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "Kumwe\\Localization\\Application\\Translator"
+            ],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "catalogues",
+                            "type": "Kumwe\\Localization\\Application\\MessageCatalogueRepository",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "overrides",
+                            "type": "Kumwe\\Localization\\Application\\MessageOverrideRepository",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "formatter",
+                            "type": "Kumwe\\Localization\\Application\\MessagePatternFormatter",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "active",
+                            "type": "Kumwe\\Localization\\Application\\ActiveLocale",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "supported",
+                            "type": "Kumwe\\Localization\\Application\\SupportedLocales",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "attribution": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "?Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "?array"
+                },
+                "has": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "?Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "translate": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "parameters",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "?Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\DefaultLocaleProvider": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/DefaultLocaleProvider.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "locale": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "Kumwe\\Localization\\Domain\\LocaleTag"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\LocaleNegotiator": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/LocaleNegotiator.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "supported",
+                            "type": "Kumwe\\Localization\\Application\\SupportedLocales",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "siteDefault",
+                            "type": "Kumwe\\Localization\\Application\\DefaultLocaleProvider",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "maximumHeader",
+                            "type": "int",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "negotiate": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "explicit",
+                            "type": "?string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "acceptLanguage",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\LocaleTag"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\MessageCatalogueRepository": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/MessageCatalogueRepository.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "catalogue": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "layer",
+                            "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\MessageCatalogue"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\MessageFormattingFailed": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/MessageFormattingFailed.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": "RuntimeException",
+            "interfaces": [
+                "Stringable",
+                "Throwable"
+            ],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "pattern": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "reason",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "context",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Application\\MessageFormattingFailed"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\MessageOverrideRecord": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/MessageOverrideRecord.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "identifier": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "layer": {
+                    "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+                    "static": false,
+                    "readonly": true
+                },
+                "locale": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "organization": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "pattern": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "site": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "updatedAt": {
+                    "type": "DateTimeImmutable",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "layer",
+                            "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "site",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "organization",
+                            "type": "?string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "pattern",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "updatedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\MessageOverrideRepository": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/MessageOverrideRepository.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "organizationOverrides": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "site",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "organization",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                "siteOverrides": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "site",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\MessageOverrideStore": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/MessageOverrideStore.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "lockSite": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "site",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "overrides": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "layer",
+                            "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "site",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "organization",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "?Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                "put": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "override",
+                            "type": "Kumwe\\Localization\\Application\\MessageOverrideRecord",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "remove": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "layer",
+                            "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "site",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "organization",
+                            "type": "?string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\MessagePatternFormatter": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/MessagePatternFormatter.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "format": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "pattern",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "parameters",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\MessagePatternValidator": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/MessagePatternValidator.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "validate": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "pattern",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\SupportedLocales": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/SupportedLocales.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {
+                "SOURCE": {
+                    "type": null
+                },
+                "VERSION_TWO": {
+                    "type": null
+                }
+            },
+            "properties": {},
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "tags",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "source",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "all": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "best": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "candidate",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "?Kumwe\\Localization\\Domain\\LocaleTag"
+                },
+                "carries": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "candidate",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "source": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "Kumwe\\Localization\\Domain\\LocaleTag"
+                },
+                "tags": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\TranslationScope": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/TranslationScope.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "organization": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "site": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "site",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "organization",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "default": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [],
+                    "return": "Kumwe\\Localization\\Application\\TranslationScope"
+                },
+                "key": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Application\\Translator": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/Translator.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "has": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "?Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "translate": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "parameters",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "?Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\ConfigProvider": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/ConfigProvider.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Container\\CatalogueTranslatorFactory": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Container/CatalogueTranslatorFactory.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "container",
+                            "type": "Psr\\Container\\ContainerInterface",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Application\\CatalogueTranslator"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Container\\LocaleNegotiatorFactory": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Container/LocaleNegotiatorFactory.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "container",
+                            "type": "Psr\\Container\\ContainerInterface",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Application\\LocaleNegotiator"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Domain\\InvalidLocaleTag": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/InvalidLocaleTag.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": "InvalidArgumentException",
+            "interfaces": [
+                "Stringable",
+                "Throwable"
+            ],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "malformed": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "candidate",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\InvalidLocaleTag"
+                },
+                "unsupported": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "candidate",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "supported",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\InvalidLocaleTag"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Domain\\InvalidMessageIdentifier": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/InvalidMessageIdentifier.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": "InvalidArgumentException",
+            "interfaces": [
+                "Stringable",
+                "Throwable"
+            ],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "malformed": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\InvalidMessageIdentifier"
+                },
+                "outsideNamespace": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "namespace",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\InvalidMessageIdentifier"
+                },
+                "sourceText": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\InvalidMessageIdentifier"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Domain\\LocaleTag": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/LocaleTag.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "region": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "script": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "direction": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "Kumwe\\Localization\\Domain\\TextDirection"
+                },
+                "equals": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "other",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "fallbacks": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "fromString": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "tag",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\LocaleTag"
+                },
+                "toString": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Domain\\MessageCatalogue": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/MessageCatalogue.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "layer": {
+                    "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+                    "static": false,
+                    "readonly": true
+                },
+                "locale": {
+                    "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                    "static": false,
+                    "readonly": true
+                },
+                "messages": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "layer",
+                            "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "messages",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "count": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "int"
+                },
+                "empty": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "layer",
+                            "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\MessageCatalogue"
+                },
+                "has": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "identifiers": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "pattern": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "?string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Domain\\MessageCatalogueChain": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/MessageCatalogueChain.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "layers": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "locale": {
+                    "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "layers",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "resolve": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "?string"
+                },
+                "winningLayer": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "?Kumwe\\Localization\\Domain\\MessageCatalogueLayer"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Domain\\MessageCatalogueLayer": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/MessageCatalogueLayer.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Core": {
+                    "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer"
+                },
+                "Extension": {
+                    "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer"
+                },
+                "Organization": {
+                    "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer"
+                },
+                "Site": {
+                    "type": "Kumwe\\Localization\\Domain\\MessageCatalogueLayer"
+                }
+            },
+            "properties": {},
+            "methods": {
+                "mostSpecificFirst": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Domain\\MessageIdentifier": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/MessageIdentifier.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {
+                "MAXIMUM_LENGTH": {
+                    "type": null
+                },
+                "MINIMUM_SEGMENTS": {
+                    "type": null
+                }
+            },
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "fromString": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\MessageIdentifier"
+                },
+                "isValid": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "ownedBy": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "namespace",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\Localization\\Domain\\MessageIdentifier"
+                },
+                "root": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Domain\\TextDirection": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/TextDirection.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "LeftToRight": {
+                    "type": "Kumwe\\Localization\\Domain\\TextDirection"
+                },
+                "RightToLeft": {
+                    "type": "Kumwe\\Localization\\Domain\\TextDirection"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Infrastructure\\IntlExtensionMissing": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Infrastructure/IntlExtensionMissing.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": "RuntimeException",
+            "interfaces": [
+                "Stringable",
+                "Throwable"
+            ],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "forMessageFormatting": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [],
+                    "return": "Kumwe\\Localization\\Infrastructure\\IntlExtensionMissing"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\Localization\\Infrastructure\\IntlMessagePatternFormatter": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Infrastructure/IntlMessagePatternFormatter.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [
+                "Kumwe\\Localization\\Application\\MessagePatternFormatter",
+                "Kumwe\\Localization\\Application\\MessagePatternValidator"
+            ],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": null
+                },
+                "format": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "pattern",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "parameters",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                "validate": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "pattern",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                }
+            },
+            "deprecated": null
+        }
+    },
+    "extension_points": [
+        "Kumwe\\Localization\\Application\\DefaultLocaleProvider",
+        "Kumwe\\Localization\\Application\\MessageCatalogueRepository",
+        "Kumwe\\Localization\\Application\\MessageOverrideRepository",
+        "Kumwe\\Localization\\Application\\MessageOverrideStore",
+        "Kumwe\\Localization\\Application\\MessagePatternFormatter",
+        "Kumwe\\Localization\\Application\\MessagePatternValidator",
+        "Kumwe\\Localization\\Application\\Translator"
+    ],
+    "digest_of": "src"
+}
