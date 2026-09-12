@@ -17,7 +17,7 @@ ActiveLocale and translator caches belong to one non-overlapping operation and r
 ICU is required explicitly. Missing intl refuses formatter construction; there is no substitution fallback.
 Malformed patterns and formatting failures raise MessageFormattingFailed. ICU owns Unicode/plural/number
 data, so consistent bytes require matching ICU versions; date output additionally depends on the host
-timezone defaults. This extraction preserves that behavior rather than claiming process-independent dates.
+timezone defaults. Formatted dates therefore depend on the configured deployment environment.
 
 Filesystem/XLIFF/compiler adapters and executable compiled catalogue loading remain host responsibilities.
 Do not pass untrusted writable paths to those retained App adapters. This package opens no database,

@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Add live package/CI/PHP/license badges and published installation guidance.
+- Replace completed handover prose with current Core composition and a strict production release record.
+- Preserve ICU, operation lifetime, host test retention and executable source-parity contracts.
+
 ## 0.1.1
 
 - Unify PR and post-rebase release gates, dynamic release identity, tested publication retries,

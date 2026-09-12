@@ -17,7 +17,7 @@ does not publish; keep work that is not ready under `## Unreleased`.
 ## Artifact, platform and consumer verification
 
 The archive includes LICENSE, the full charter/API/service/capability documentation,
-examples, the handoff and production sources. Tests, fixtures, vendor, tools and
+examples, the release record and production sources. Tests, fixtures, vendor, tools and
 workflow state are excluded. The clean-consumer gate installs this exact ZIP as a
 dependency in a fresh Composer project with no-dev authoritative classmaps. It loads
 every manifested type through the consumer autoloader and exercises standalone
@@ -34,7 +34,7 @@ Behavior changes need regression vectors, a reviewed changelog and SemVer
 classification; pre-1.0 consumers pin exact versions. Rollback restores the previous
 application/Composer lock and compatible PHP/ICU deployment together. Security
 corrections follow the reporting policy and receive an unused successor version.
-Portable tests remain package-owned; App test retention follows the handoff.
+Portable tests remain package-owned; Core test retention follows the integration contract.
 
 ## Publication evidence and recovery
 
@@ -45,7 +45,7 @@ release, tag and source identity. Publication does not establish `release-verifi
 Before declaring that state or SDK/App adoption, a fresh independent verifier must
 bind the exact published source/tag, archive digest, manifests, registry coordinate,
 license/security and clean-consumer results in an external RELEASE-ATTESTATION.yaml.
-The artifact and handoff must not invent their own final commit, checksum or
+The artifact and release record must not invent their own final commit, checksum or
 publication evidence. This attestation is separate from normal publication.
 
 Use the current release workflow on the default branch to retry after correcting

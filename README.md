@@ -1,15 +1,33 @@
 # Kumwe Localization
 
-Portable locale negotiation, layered message catalogues and ICU formatting, extracted from Kumwe App.
+[![Packagist version][version-badge]][package]
+[![CI][ci-badge]][ci]
+[![PHP requirement][php-badge]](composer.json)
+[![License][license-badge]](LICENSE)
+
+[version-badge]: https://img.shields.io/packagist/v/kumwe/localization
+[package]: https://packagist.org/packages/kumwe/localization
+[ci-badge]: https://github.com/kumwe/localization/actions/workflows/ci.yml/badge.svg?branch=main
+[ci]: https://github.com/kumwe/localization/actions/workflows/ci.yml?query=branch%3Amain
+[php-badge]: https://img.shields.io/packagist/dependency-v/kumwe/localization/php
+[license-badge]: https://img.shields.io/packagist/l/kumwe/localization
+
+Portable locale negotiation, layered message catalogues and ICU formatting.
 Canonical namespace: `Kumwe\Localization\*`. Requires PHP 8.5 and ext-intl. Apache-2.0.
 
 The package owns translation behavior and contracts; the host supplies catalogues, override storage,
 trusted scope and its default locale. Authorization, settings mutation, persistence and delivery remain
 in the host. No Kumwe dependency or historical namespace alias is used.
 
-Install the approved released version with Composer. During the pre-1.0 programme, consumers pin the exact
-independently verified version rather than a floating branch or range. No package has been published by
-this implementation branch.
+## Installation and usage
+
+Install the published release with an exact pre-1.0 pin:
+
+```bash
+composer require kumwe/localization:0.1.1
+```
+
+Review [release verification](docs/releasing.md) and compatible PHP/ICU versions before upgrading.
 
 ```php
 use Kumwe\Localization\Domain\LocaleTag;
@@ -23,6 +41,8 @@ echo (new IntlMessagePatternFormatter())->format('Olá, {name}!', ['name' => 'Ku
 Run `php examples/translate.php` after `composer install` for a complete catalogue/override/default-provider
 example. It prints `Hello, Kumwe!`. `examples/container.php` proves the same behavior with an explicitly
 configured Laminas ServiceManager. Full public member contracts are in [docs/public-api.md](docs/public-api.md).
+
+## Core composition
 
 Register `Kumwe\Localization\ConfigProvider` explicitly in the host ConfigAggregator provider list.
 It registers only `CatalogueTranslator` and `LocaleNegotiator`, both **non-shared**, plus the canonical
@@ -44,11 +64,14 @@ Open/close sequential operations with `begin()` and `end()` in `finally`; alloca
 translator instances for overlapping requests/fibers. Host adapters supply bounded catalogue maps and
 trusted unambiguous scope identifiers; these DTOs are not authorization or content-validation boundaries.
 
-Run `composer check` for lint, member documentation, architecture, manifests, static analysis, PSR-12,
+## Development
+
+Run `composer install`, then `composer check` for lint, member documentation, architecture, manifests,
+static analysis, PSR-12,
 unit tests, security audit and a fresh no-dev authoritative-classmap consumer installed from the built ZIP.
 PHP 8.5 is the supported CI lane. `ext-intl` and `psr/container` are the only non-PHP runtime dependencies;
 the latter is used solely by factories. `ext-zip` and Laminas ServiceManager are verification dependencies.
 
-[MIGRATION-HANDOFF.md](MIGRATION-HANDOFF.md) inventories exact source mappings and the separate App adoption.
-[docs/releasing.md](docs/releasing.md) specifies immutable release-on-record and verification gates;
+[Release evidence](docs/release-record.md) preserves source mappings, manifest identities and consumer obligations.
+[docs/releasing.md](docs/releasing.md) specifies publication and independent verification gates;
 [docs/security.md](docs/security.md) records limits, deployment assumptions and private reporting.
