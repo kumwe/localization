@@ -1,4 +1,4 @@
-# Host integration
+# Core contract and host integration
 
 Use `examples/translate.php` for direct construction and `examples/container.php` for a complete standalone
 Laminas host. Register `Kumwe\Localization\ConfigProvider::class` explicitly in ConfigAggregator; merge its
@@ -24,9 +24,17 @@ Do not put an operation's ActiveLocale into a process-global singleton when requ
 and inject one translator within the operation's container. For sequential workers, begin/end always
 increments the memoization generation, preventing stale wording snapshots from crossing requests.
 
-App Phase 2 requires a human-merged release and an independent external release attestation. Change all
-inventoried imports from Kumwe\App\Localization to Kumwe\Localization for the extracted symbols only;
-add `implements DefaultLocaleProvider` to retained SiteDefaultLocale; register its instance under that
-interface in the host container. Do not rename retained middleware/services/storage/compiler adapters.
-Regenerate Composer state, remove the mapped old definitions and duplicate unit tests, and run the full
-affected App/database/delivery/browser suites. The handoff contains the exact file inventory and drift check.
+## Compatibility and test ownership
+
+Use an exact independently verified package release and preserve the host's settings, degradation and
+cache behavior. Bind the retained SiteDefaultLocale adapter to DefaultLocaleProvider before constructing
+LocaleNegotiator. Middleware, services, storage and compiler adapters remain under Core ownership.
+
+When replacing historical types, review current consumers against the source mappings in
+[release evidence](release-record.md). Regenerate Composer state and capability indexes through their
+supported tools. Remove a duplicate class test together with its retired implementation after verified
+replacement, and split mixed negotiation tests to retain host settings-failure and caching assertions.
+
+Core retains persistence, middleware, Twig, compiled catalogue, integration, functional and database/
+delivery/browser tests. Package tests own portable locale, catalogue, negotiation and formatting behavior.
+Verify operation-context isolation and the actual container bindings as part of Core integration.
