@@ -768,7 +768,9 @@ consumer_contract:
     lanes
 ---
 
-# Package contract
+# Release contract
+
+## Package contract
 
 This record preserves exact source provenance, manifest identities and consumer qualification requirements.
 Migration/change-set identifiers are stable evidence references. The [Core contract](integration.md) defines
